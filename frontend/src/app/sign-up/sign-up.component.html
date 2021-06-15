@@ -1,0 +1,36 @@
+<div class="page-container">
+  <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="50" fxLayout="column" class="login-card">
+      <mat-card-title fxFlex="10"> signup </mat-card-title>
+      <mat-card-subtitle fxFlex="10">
+        enter your credentials to signup</mat-card-subtitle
+      >
+      <mat-card-content fxFlex class="login-card-content">
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+          <div
+            fxLayout="row wrap"
+            class="login-card-content"
+            fxFlex="100"
+            fxLayoutAlign="center space-around"
+          >
+            <mat-form-field fxFlex="55">
+              <mat-label> email </mat-label>
+              <input formControlName="email" matInput type="text" />
+              <mat-error *ngIf="signUpForm?.controls?.email?.invalid">
+                invalid email
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="55">
+              <mat-label> password </mat-label>
+              <input formControlName="password" matInput type="text" />
+            </mat-form-field>
+            <button mat-raised-button color="primary" fxFlex="50" type="submit">
+              login
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
