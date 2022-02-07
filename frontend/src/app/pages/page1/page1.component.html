@@ -1,0 +1,61 @@
+<div class="view-container" fxLayout="row wrap" fxLayoutAlign="center center">
+  <div fxFlex="100" fxLayoutAlign="center center">
+    <div>
+      <h1>hello {{ userData.name }}, ( {{ userData.email }})</h1>
+    </div>
+  </div>
+  <!-- <div fxFlex="50" fxLayoutAlign="center center" class="button-container">
+    <button (click)="getUserDetails()" mat-raised-button>getUserDetails</button>
+  </div> -->
+
+  <div fxFlex="50" fxLayoutAlign="center center">
+    total coins earned: {{ userData?.coinsEarned }}
+  </div>
+  <div
+    *ngIf="userData"
+    fxFlex="100"
+    fxLayout="row wrap"
+    fxLayoutAlign="center center"
+  >
+    <form [formGroup]="purchaseForm" (ngSubmit)="purchase()">
+      <div
+        fxLayout="row wrap"
+        class="form-container"
+        fxFlex="100"
+        fxLayoutAlign="center space-around"
+      >
+        <mat-form-field fxFlex="55">
+          <mat-label> item Id </mat-label>
+          <input formControlName="itemId" matInput type="text" />
+          <mat-error *ngIf="purchaseForm?.controls?.itemId?.invalid">
+            invalid
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="55">
+          <mat-label> item name </mat-label>
+          <input formControlName="itemName" matInput type="text" />
+        </mat-form-field>
+
+        <mat-form-field fxFlex="55" style="margin-bottom: 2%">
+          <mat-label> item price </mat-label>
+          <input formControlName="itemPrice" matInput type="number" />
+        </mat-form-field>
+
+        <div fxFlex="55" style="margin-bottom: 2%" *ngIf="coinsEarned">
+          congratz! you earned
+          {{ coinsEarned }} coins
+        </div>
+        <div
+          class="button-container"
+          fxFlex="50"
+          fxLayoutAlign="center space-around"
+        >
+          <button mat-raised-button color="primary" type="submit">
+            purchase
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

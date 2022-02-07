@@ -1,6 +1,8 @@
-<mat-toolbar color="primary">
-  <span>{{ title }}</span>
-</mat-toolbar>
 <div class="super-container">
   <router-outlet class="super-container"></router-outlet>
 </div>
+
+<mat-toolbar color="primary" class="my-toolbar">
+  <button mat-button (click)="open()"><mat-icon>menu</mat-icon></button>
+  <span>{{ title }}</span>
+</mat-toolbar>

@@ -2,10 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-
+import { CookieService } from 'ngx-cookie-service';
 //Angular Material Components
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TaskComponent } from './task/task.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -15,14 +14,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyHttpInterceptor } from './service/api.interceptor';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { Page1Component } from './pages/page1/page1.component';
+import { CreatePasswordComponent } from './create-password/create-password.component';
+import { PagesModule } from './pages/pages.module';
+import { OtpComponent } from './otp/otp.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent,
     LoginComponent,
     HeaderComponent,
     SignUpComponent,
+    Page1Component,
+    CreatePasswordComponent,
+    OtpComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -32,6 +37,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     AngularMaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
+    PagesModule,
   ],
   providers: [
     {
@@ -39,6 +45,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
       useClass: MyHttpInterceptor,
       multi: true,
     },
+    CookieService,
   ],
   bootstrap: [AppComponent],
 })
